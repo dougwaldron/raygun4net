@@ -221,7 +221,7 @@ namespace Mindscape.Raygun4Net
 
     private static void Current_UnhandledException(object sender, UnhandledExceptionEventArgs e)
     {
-      _client.Send(e.Exception);
+      _client.Send(e.Exception, new []{RaygunClient.UnhandledExceptionTag});
     }
 
     /// <summary>

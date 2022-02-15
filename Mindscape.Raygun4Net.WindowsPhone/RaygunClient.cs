@@ -136,7 +136,7 @@ namespace Mindscape.Raygun4Net
     {
       if (e.ExceptionObject is Exception)
       {
-        _client.Send(e.ExceptionObject);
+        _client.Send(e.ExceptionObject, new []{RaygunClient.UnhandledExceptionTag});
       }
     }
 

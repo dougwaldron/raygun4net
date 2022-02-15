@@ -214,7 +214,7 @@ namespace Mindscape.Raygun4Net
     {
       if (e.Exception != null)
       {
-        _client.Send(e.Exception);
+        _client.Send(e.Exception, new []{RaygunClient.UnhandledExceptionTag});
       }
     }
 
@@ -222,7 +222,7 @@ namespace Mindscape.Raygun4Net
     {
       if (e.ExceptionObject is Exception)
       {
-        _client.Send(e.ExceptionObject as Exception);
+        _client.Send(e.ExceptionObject as Exception, new []{RaygunClient.UnhandledExceptionTag});
       }
     }
 

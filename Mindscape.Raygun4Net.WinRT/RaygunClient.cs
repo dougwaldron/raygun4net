@@ -203,7 +203,7 @@ namespace Mindscape.Raygun4Net
 
     private static void Current_UnhandledException(object sender, UnhandledExceptionEventArgs e)
     {
-      _client.Send(e);
+      _client.Send(e, new []{RaygunClient.UnhandledExceptionTag});
     }
 
     /// <summary>

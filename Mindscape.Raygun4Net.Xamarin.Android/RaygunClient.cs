@@ -353,7 +353,7 @@ namespace Mindscape.Raygun4Net
     {
       if (e.Exception != null)
       {
-        Current.Send(e.Exception);
+        Current.Send(e.Exception, new []{RaygunClient.UnhandledExceptionTag});
       }
 
       if (RaygunSettings.Settings.SetUnobservedTaskExceptionsAsObserved)
@@ -366,7 +366,7 @@ namespace Mindscape.Raygun4Net
     {
       if (e.ExceptionObject is Exception)
       {
-        Current.Send((e.ExceptionObject as Exception), new List<string>() { "UnhandledException" });
+        Current.Send((e.ExceptionObject as Exception), new []{RaygunClient.UnhandledExceptionTag});
         Pulse.SendRemainingActivity();
       }
     }
@@ -375,7 +375,7 @@ namespace Mindscape.Raygun4Net
     {
       if (e.Exception != null)
       {
-        Current.Send(e.Exception, new List<string>() { "UnhandledException" });
+        Current.Send(e.Exception, new []{RaygunClient.UnhandledExceptionTag});
         Pulse.SendRemainingActivity();
       }
     }
